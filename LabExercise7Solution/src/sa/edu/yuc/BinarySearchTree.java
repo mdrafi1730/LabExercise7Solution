@@ -12,4 +12,6 @@ public interface BinarySearchTree<T> {
 	public void postOrder(List<T> list) throws TreeEmptyException;
 	public T minimum() throws TreeEmptyException;
 	public T maximum() throws TreeEmptyException;
+	public T maximumBalance() throws TreeEmptyException;
+	public T minimumBalance() throws TreeEmptyException;
 }

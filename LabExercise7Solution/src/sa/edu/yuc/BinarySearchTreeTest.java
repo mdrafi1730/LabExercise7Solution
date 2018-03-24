@@ -56,19 +56,33 @@ public class BinarySearchTreeTest {
 					break;
 			case 8:
 					try{
-						System.out.print("Minimum = " + bst.maximum());
+						System.out.print("Maximum Balance = " + bst.maximum());
 					}catch(TreeEmptyException tee){
 						System.out.println(tee.getMessage());
 					}
 					break;
 			case 9:
+					try{
+						System.out.print("Maximum Balance = " + bst.maximumBalance());
+					}catch(TreeEmptyException tee){
+						System.out.println(tee.getMessage());
+					}
+					break;
+			case 10:
+				try{
+					System.out.print("Minimum Balance = " + bst.minimumBalance());
+				}catch(TreeEmptyException tee){
+					System.out.println(tee.getMessage());
+				}
+				break;
+			case 11:
 					System.out.println("Thank you for using this program !!!");
 					break;
 			default:
 					System.out.println("Invalid option");
 					
 		}
-	}while(choice != 9);
+	}while(choice != 10);
 }
 public static void menu(){
 	System.out.println("Binary Search Tree Operations\n1. IsEmpty()\n2. Insert"
@@ -78,6 +92,8 @@ public static void menu(){
 		+ "\n6. PostOrder"
 		+ "\n7. Minimum"
 		+ "\n8. Maximum"
-		+ "\n9. Exit");
+		+ "\n9. Maximum Balance"
+		+ "\n10. Minimum Balance"
+		+ "\n10. Exit");
 }
 }

@@ -1,4 +1,5 @@
 package sa.edu.yuc;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 public class BinarySearchTreeImpl<T extends Comparable<T>> implements BinarySearchTree<T>, Iterable<T>{
@@ -123,6 +124,38 @@ public class BinarySearchTreeImpl<T extends Comparable<T>> implements BinarySear
 	    	 current = current.rightChild;
 	     }
 	     return (current.item);
+	}
+	public T maximumBalance() throws TreeEmptyException{
+		T temp = null;
+		if(isEmpty())
+			throw new TreeEmptyException("Tree is Empty");
+		List list = new ArrayList<>();
+		root.postOrder(list);
+		double balance = ((Account) list.get(0)).getBalance();
+		temp = (T) list.get(0);
+		for(int i = 0; i < list.size(); i++){
+			if(((Account) list.get(i)).getBalance() > balance){
+				balance = ((Account) list.get(i)).getBalance();
+				temp = (T) list.get(i);
+			}
+		}
+		return temp;
+	}
+	public T minimumBalance() throws TreeEmptyException{
+		T temp = null;
+		if(isEmpty())
+			throw new TreeEmptyException("Tree is Empty");
+		List list = new ArrayList<>();
+		root.postOrder(list);
+		double balance = ((Account) list.get(0)).getBalance();
+		temp = (T) list.get(0);
+		for(int i = 0; i < list.size(); i++){
+			if(((Account) list.get(i)).getBalance() < balance){
+				balance = ((Account) list.get(i)).getBalance();
+				temp = (T) list.get(i);
+			}
+		}
+		return temp;
 	}
 	
 }
